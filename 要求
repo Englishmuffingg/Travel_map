@@ -1,0 +1,36 @@
+
+---
+
+## High-Quality Coding & Data Principles (For Cursor/AI Code Assistant)
+
+### 1. **Code Quality & Change Principles**
+
+* **Only incremental improvements** based on existing code—never rewrite unless absolutely needed, and explain why if you do.
+* **Keep code minimal, readable, and maintainable.** Avoid unnecessary files, abstractions, and complexity.
+* **Explain your plan and reasoning** before coding. Document what will be optimized or changed and why.
+* **No dead or unused code.** Always remove legacy or unreferenced code/files.
+* **Code review mindset:** Justify every line as if submitting a production pull request.
+* **Prefer quality over quantity:** Less code, better performance, and clarity are always preferred.
+* **Add clear comments** for any non-trivial logic or function/component.
+* **No duplicate logic:** Refactor to reuse code where possible.
+* **Provide a change log** after major changes, listing what changed and why.
+* **Only make small, targeted modifications** when asked. Never introduce unrelated logic or unnecessary files/components.
+* **If a major rewrite is required, explain and get approval before proceeding.**
+
+---
+
+### 2. **Real Data Principle**
+
+* **Do NOT generate or use any fake/mock/dummy/hardcoded data** unless explicitly requested.
+* **Always use real data structures, user input, real APIs, or actual data files** for logic and UI.
+* **If display requires data,** implement logic for collecting/inputting/obtaining real data (user form, upload, actual API), even if only locally.
+* **Ask for clarification** if unsure what real data is needed.
+* **Any starter/default data** must be clearly marked, easily removable, and never used as main logic.
+* **If placeholders are necessary,** isolate from production logic and make them easy to remove.
+
+---
+
+#### **简明版摘要：**
+
+> **Keep all code simple, incremental, justified, and well-documented. Use only real data, never fake or hardcoded values. Always explain changes, ask if unsure, and never bloat the project.**
+

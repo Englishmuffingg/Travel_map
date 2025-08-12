@@ -1,0 +1,92 @@
+[
+  {
+    "id": "beijing-cn",
+    "name": "Beijing",
+    "country": "China",
+    "coordinates": [116.4074, 39.9042],
+    "category": "Visited",
+    "visitDate": "2023-08-15",
+    "notes": "Amazing historical sites and Great Wall!"
+  },
+  {
+    "id": "paris-fr",
+    "name": "Paris",
+    "country": "France",
+    "coordinates": [2.3522, 48.8566],
+    "category": "Visited",
+    "visitDate": "2023-06-20",
+    "notes": "Eiffel Tower and amazing food!"
+  },
+  {
+    "id": "tokyo-jp",
+    "name": "Tokyo",
+    "country": "Japan",
+    "coordinates": [139.6917, 35.6895],
+    "category": "Wishlist",
+    "visitDate": null,
+    "notes": "Want to visit temples and try sushi!"
+  },
+  {
+    "id": "new-york-us",
+    "name": "New York",
+    "country": "United States",
+    "coordinates": [-74.0060, 40.7128],
+    "category": "Favorite",
+    "visitDate": "2023-03-10",
+    "notes": "Times Square and Central Park are incredible!"
+  },
+  {
+    "id": "london-gb",
+    "name": "London",
+    "country": "United Kingdom",
+    "coordinates": [-0.1276, 51.5074],
+    "category": "Visited",
+    "visitDate": "2023-09-05",
+    "notes": "Big Ben and British Museum are must-see!"
+  },
+  {
+    "id": "sydney-au",
+    "name": "Sydney",
+    "country": "Australia",
+    "coordinates": [151.2093, -33.8688],
+    "category": "Wishlist",
+    "visitDate": null,
+    "notes": "Opera House and beautiful beaches!"
+  },
+  {
+    "id": "mumbai-in",
+    "name": "Mumbai",
+    "country": "India",
+    "coordinates": [72.8777, 19.0760],
+    "category": "Business",
+    "visitDate": "2023-11-12",
+    "notes": "Business trip, Gateway of India was impressive"
+  },
+  {
+    "id": "cairo-eg",
+    "name": "Cairo",
+    "country": "Egypt",
+    "coordinates": [31.2357, 30.0444],
+    "category": "Wishlist",
+    "visitDate": null,
+    "notes": "Pyramids and ancient history!"
+  },
+  {
+    "id": "rio-br",
+    "name": "Rio de Janeiro",
+    "country": "Brazil",
+    "coordinates": [-43.1729, -22.9068],
+    "category": "Wishlist",
+    "visitDate": null,
+    "notes": "Christ the Redeemer and Carnival!"
+  },
+  {
+    "id": "istanbul-tr",
+    "name": "Istanbul",
+    "country": "Turkey",
+    "coordinates": [28.9784, 41.0082],
+    "category": "Transit",
+    "visitDate": "2023-07-08",
+    "notes": "Quick transit, Hagia Sophia was beautiful"
+  }
+] 
