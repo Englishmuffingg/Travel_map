@@ -216,18 +216,20 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
         console.info('layers:', map.current.getStyle().layers?.map(l => l.id));
       } catch {}
       
-      // 临时调试图层（固定红色）确认渲染路径
-      map.current.addLayer({
-        id: 'debug-dots',
-        type: 'circle',
-        source: 'myCities',
-        filter: ['!', ['has', 'point_count']],
-        paint: {
-          'circle-color': '#ff0000',
-          'circle-radius': 8,
-          'circle-opacity': 1
+        if (process.env.NODE_ENV !== 'production') {
+          // 临时调试图层（固定红色）确认渲染路径
+          map.current.addLayer({
+            id: 'debug-dots',
+            type: 'circle',
+            source: 'myCities',
+            filter: ['!', ['has', 'point_count']],
+            paint: {
+              'circle-color': '#ff0000',
+              'circle-radius': 8,
+              'circle-opacity': 1
+            }
+          });
         }
-      });
     } else {
       // 更新数据
       (map.current.getSource('myCities') as maplibregl.GeoJSONSource).setData(featureCollection as any);
