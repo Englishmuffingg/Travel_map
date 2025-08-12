@@ -253,9 +253,8 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
     if (!map.current || !mapLoaded) return;
 
     const handleClick = (e: maplibregl.MapMouseEvent) => {
-      const features = (e as any).features;
       const { lng, lat } = e.lngLat;
-      
+
       // 查询渲染的特征以获取城市名称和国家信息
       const renderedFeatures = map.current!.queryRenderedFeatures(e.point);
       
@@ -294,22 +293,21 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
       }
       
       // 检查是否点击了用户城市标记
-      if (features && features.length > 0) {
-        // 点击事件仅作用于自定义城市图层
-        const userCityFeature = features.find((f: any) => f.source === 'myCities');
-        if (userCityFeature && userCityFeature.properties) {
-          const city = cities.find(c => c.id === userCityFeature.properties.id);
-          if (city) {
-            onCitySelect(city);
-            
-            // 平滑移动到选中的城市
-            map.current!.flyTo({
-              center: city.coordinates,
-              zoom: Math.max(map.current!.getZoom(), 8),
-              duration: 1000
-            });
-            return;
-          }
+      const userCityFeature = renderedFeatures.find(
+        (f: any) => f.layer?.id === 'myCities-circle'
+      );
+      if (userCityFeature && userCityFeature.properties) {
+        const city = cities.find(c => c.id === userCityFeature.properties.id);
+        if (city) {
+          onCitySelect(city);
+
+          // 平滑移动到选中的城市
+          map.current!.flyTo({
+            center: city.coordinates,
+            zoom: Math.max(map.current!.getZoom(), 8),
+            duration: 1000
+          });
+          return;
         }
       }
       
