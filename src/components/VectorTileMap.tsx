@@ -295,7 +295,8 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
       
       // 检查是否点击了用户城市标记
       if (features && features.length > 0) {
-        const userCityFeature = features.find((f: any) => f.source === 'user-cities');
+        // 点击事件仅作用于自定义城市图层
+        const userCityFeature = features.find((f: any) => f.source === 'myCities');
         if (userCityFeature && userCityFeature.properties) {
           const city = cities.find(c => c.id === userCityFeature.properties.id);
           if (city) {
@@ -368,7 +369,7 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
       
       // 检查是否悬停在可点击的图层上
       const clickableFeature = features.find((f: any) => 
-        f.source === 'user-cities' ||
+        f.source === 'myCities' ||
         f.layer?.id?.includes('cities') || 
         f.layer?.id?.includes('place') ||
         f.layer?.id?.includes('admin') || 
@@ -400,7 +401,7 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
       const features = (e as any).features;
       if (features && features[0].properties.cluster_id) {
         const clusterId = features[0].properties.cluster_id;
-        const source = map.current!.getSource('user-cities') as maplibregl.GeoJSONSource;
+        const source = map.current!.getSource('myCities') as maplibregl.GeoJSONSource;
         
         source.getClusterExpansionZoom(clusterId).then((zoom: any) => {
           map.current!.easeTo({
@@ -414,11 +415,11 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
       }
     };
 
-    map.current.on('click', 'user-cities-clusters', handleClusterClick);
+    map.current.on('click', 'myCities-clusters', handleClusterClick);
 
     return () => {
       if (map.current) {
-        map.current.off('click', 'user-cities-clusters', handleClusterClick);
+        map.current.off('click', 'myCities-clusters', handleClusterClick);
       }
     };
   }, [mapLoaded, cities.length]);
