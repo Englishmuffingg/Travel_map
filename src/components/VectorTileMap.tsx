@@ -216,8 +216,8 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
         console.info('layers:', map.current.getStyle().layers?.map(l => l.id));
       } catch {}
       
-        if (process.env.NODE_ENV !== 'production') {
-          // 临时调试图层（固定红色）确认渲染路径
+        if (import.meta.env.DEV) {
+          // 临时调试图层（固定红色）确认渲染路径，仅在开发模式下启用
           map.current.addLayer({
             id: 'debug-dots',
             type: 'circle',
@@ -229,6 +229,8 @@ const VectorTileMap: React.FC<VectorTileMapProps> = ({
               'circle-opacity': 1
             }
           });
+        } else if (map.current.getLayer('debug-dots')) {
+          map.current.removeLayer('debug-dots');
         }
     } else {
       // 更新数据
